@@ -1,0 +1,12 @@
+<div class="list-group">
+	<a
+		ng-repeat="mail in response.results"
+		href="#/mails/{{mail.uri.substring(mail.uri.lastIndexOf('/')+1)}}"
+		class="list-group-item"
+	>
+		<p class="list-group-item-heading"><h4>Subject: {{mail.extracted.content[2].Subject}}</h4></p>
+		<p class="list-group-item-text">Date Sent: {{mail.extracted.content[1].SentOnDate}}</p>
+		<p class="list-group-item-text">From: {{mail.extracted.content[0].From}}</p>
+		<!-- <p class="list-group-item-text">href: {{mail.href}}</p>-->
+    </a>
+</div>

@@ -1,0 +1,37 @@
+<!--
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-2">
+			<!--Sidebar content-->
+			<!-- 
+			Search: <input ng-model="query">
+		</div>
+		<div class="col-md-10">
+			<!--Body content-->
+			<!-- 
+			 <ul class="mails">-->
+				<!--  li ng-repeat="mail in mails | filter:query | orderBy:orderProp" class="thumbnail">
+					<p>{{mail.id}}</p>
+					<p>{{mail.subject}}</p>
+				</li -->
+				<!-- <li ng-repeat="mail in response.results">
+					<!--
+					<p>{{mail.index}}</p>
+					<p>{{mail.href}}</p>
+					--><!-- 
+					<p>{{mail.extracted.content[1].Subject}}</p>
+					<p>{{mail.extracted.content[0].SentOnDate}}</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+-->
+<div class="list-group">
+	<a ng-repeat="mail in response.results" href="#/mails/{{mail.uri.substring(mail.uri.lastIndexOf('/')+1)}}" class="list-group-item">
+		<p class="list-group-item-heading"><h4>Subject: {{mail.extracted.content[2].Subject}}</h4></p>
+		<p class="list-group-item-text">Date Sent: {{mail.extracted.content[1].SentOnDate}}</p>
+		<p class="list-group-item-text">From: {{mail.extracted.content[0].From}}</p>
+		<!-- <p class="list-group-item-text">href: {{mail.href}}</p>-->
+    </a>
+</div>
