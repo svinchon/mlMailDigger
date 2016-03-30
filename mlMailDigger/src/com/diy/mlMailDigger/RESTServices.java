@@ -57,7 +57,11 @@ public class RESTServices {
 			output = str.getBytes();
 			code = 400;
 		}
-		return Response.status(code).entity(output).build();
+		return Response
+				.status(code)
+				.entity(output)
+				.header("Access-Control-Allow-Origin", "http://localhost:8000")
+				.build();
 	}
 
 	@GET
@@ -112,7 +116,7 @@ public class RESTServices {
 						sHomeFolder+"/sqy/MostRecentMails.sqy"
 				)
 			);
-			Utils.log("sqy:\n"+sBody, this);	
+			Utils.log("sqy:"+sBody.replaceAll("\t", "").replaceAll("\r", "").replaceAll("\n", ""), this);	
 			output = mlUtil.callService(
 					/* url 			*/	"http://localhost:8000/LATEST/search",
 					/* method		*/	"post",
@@ -129,7 +133,11 @@ public class RESTServices {
 			output = str.getBytes();
 			code = 400;
 		}
-		return Response.status(code).entity(output).build();
+		return Response
+				.status(code)
+				.entity(output)
+				.header("Access-Control-Allow-Origin", "http://localhost:8000")
+				.build();
 	}
 	
 	@GET
@@ -160,7 +168,7 @@ public class RESTServices {
 			//output = mlrsu.getAllMails().getBytes();
 			
 			String sBody = sSearch;
-			Utils.log("sqy:\n"+sBody, this);	
+			Utils.log("sqy:"+sBody.replaceAll("\t", "").replaceAll("\r", "").replaceAll("\n", ""), this);	
 			output = mlUtil.callService(
 					/* url 			*/	"http://localhost:8000/LATEST/search",
 					/* method		*/	"post",
@@ -177,7 +185,11 @@ public class RESTServices {
 			output = str.getBytes();
 			code = 400;
 		}
-		return Response.status(code).entity(output).build();
+		return Response
+				.status(code)
+				.entity(output)
+				.header("Access-Control-Allow-Origin", "http://localhost:8000")
+				.build();
 	}
 
 }

@@ -1,0 +1,92 @@
+html {
+	//position: 			relative;
+	//min-height: 			100%;
+}
+
+body {
+	padding-top: 			50px;		/* same as header height */
+	padding-bottom: 		55px;		/* same as footer height */
+	//min-height: 			2000px;
+	//margin-bottom: 		20px;
+	//margin-top:			20px;
+	// background:			url('/assets/example/bg_suburb.jpg') no-repeat center center fixed; 
+ 	//-webkit-background-size: cover;
+ 	//-moz-background-size:	cover;
+ 	//-o-background-size:	cover;
+ 	//background-size:		cover;
+}
+
+.footer {
+	position: 				fixed;		/* stay at bottom and visible */
+  	z-index: 				100;		/* stay in front of side bar */
+  	bottom: 				0;			/* zero from bottom */
+  	width: 					100%;
+  	height: 				55px;		/* Set the fixed height of the footer here */
+  	background-color: 		#f5f5f5;
+}
+
+.footer-container {
+	margin-top: 			10px;
+}
+
+/*.ng-view {
+	padding-top: 			20px;
+}*/
+
+.navbar-static-top {
+	//margin-bottom: 		19px;
+}
+
+.panel-default {
+	opacity:				0.9;		/* transparent panel */
+ 	margin-top:30px;
+}
+
+.div-sidemenu {							/* side menu */
+	position:				fixed;
+    background-color: 		grey;
+    color:					white;
+    font-style: 			bold;
+    width: 					200px;
+    height: 				100%;
+    z-index:				50;
+    display: 				none;
+}
+
+.ul-sidebar {							/* side menu content */
+	position: 				absolute;
+    top: 					0;
+    width: 					200px;
+    margin: 				0;
+    padding: 				0;
+    list-style: 			none;
+}
+
+.li-sidebar {							/* side menu items */
+	line-height: 			40px;
+    text-indent: 			20px;
+	border-bottom: 			white;
+	border-bottom-width: 	1px;
+	border-bottom-style: 	solid;
+}
+
+.div-ng-view {							/* make sure margin above ng-view div */
+	margin-top:				20px;
+}
+
+.btn-showmenu {							/* button to show hide side menu */
+	z-index:				500;
+    position:				fixed;
+    bottom:					65px;		/* vertical offset from bottom */
+    right:					10px;
+    margin:					0;
+    padding:				5px 3px;
+}
+
+#form-login > div {						/* for vertical spacing between fields */
+    margin-bottom: 10px;
+}
+
+.form-group.last {						/* for no vertical spacing after last fields */
+	margin-bottom: 0px;
+}

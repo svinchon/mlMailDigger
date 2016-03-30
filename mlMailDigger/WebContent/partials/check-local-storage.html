@@ -1,0 +1,57 @@
+<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+<!--  xs very small phones -->
+<!--  sm small tablet -->
+<!--  md, ld gor desktop -->
+<!-- tablet: width 8/12*screen offset 2/12 of screen -->
+<!-- phone : width 12/12*screen -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title text-center">Credentials</div>
+  </div>
+ 	<div class="panel-body" >
+    	<form id="form-login" name="form-login" class="form-horizontal" action="">
+			<div class="input-group">
+            	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            	<input
+            		type="text"
+            		class="form-control"
+            		ng-model="login"
+            		id="login"
+            		name="login"
+            		value=""
+            		placeholder="login"
+            	>                                        
+    	    </div>
+			<div class="input-group">
+       		 	<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+        	    <input
+        	    	 type="text" 
+        	    	 class="form-control"
+        	    	 ng-model="password" 
+        	    	 id="password"
+        	    	 name="password"
+        	    	 placeholder="Password"
+        	   	>
+       		</div>                                                                  
+    	    <div class="input-group">
+    	        <span class="input-group-addon"><i class="glyphicon glyphicon-hdd"></i></span>
+     	        <input
+     	        	id="server"
+     	        	type="text"
+     	        	class="form-control"
+     	        	ng-model="server"
+     	        	name="server"
+     	        	placeholder="Server"
+     	        >
+        	</div>
+     	   <div class="form-group last">
+  		      	<!-- Button -->
+    	 	   	<div class="col-sm-12 controls">
+      	     		<button type="submit" href="#" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-log-in"></i> Store</button>                          
+   		     	</div>
+     	   </div>
+		</form>
+  	</div><!-- /panel-body -->
+  	<!-- <div class="panel-footer"></div>-->
+</div><!-- /panel -->
+</div>

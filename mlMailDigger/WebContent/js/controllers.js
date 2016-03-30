@@ -68,18 +68,39 @@ mlMailDiggerControllers.controller(
 		[
 		 	'$scope', '$routeParams', '$http',
 	        function($scope, $routeParams, $http) {
-		 		//console.log($routeParams);
-		    	var url = 	'http://localhost:18080/mlMailDigger/rest/services/getMailsSearchResults.json';
-		    	url += 		'?';
-		    	url += 		'Contains='	+$routeParams.contains.substring(1);
-		    	url += 		'&';
-		    	url +=		'From='		+$routeParams.from.substring(1);
-		    	url += 		'&';		    	
-		    	url += 		'Tags='		+$routeParams.tags.substring(1);
-			    $http.get(url).success(function(data) {
-			    	$scope.response = data;
-			    	//console.log(data);
-			    });
-			}
+		 				//console.log($routeParams);
+			    	var url = 	'http://localhost:18080/mlMailDigger/rest/services/getMailsSearchResults.json';
+			    	url += 		'?';
+			    	url += 		'Contains='	+$routeParams.contains.substring(1);
+			    	url += 		'&';
+			    	url +=		'From='		+$routeParams.from.substring(1);
+			    	url += 		'&';
+			    	url += 		'Tags='		+$routeParams.tags.substring(1);
+				    $http.get(url).success(function(data) {
+				    	$scope.response = data;
+				    	//console.log(data);
+				    });
+					}
 	    ]
 	);
+
+mlMailDiggerControllers.controller(
+	'CheckLocalStorageController',
+	[
+		'$scope', '$routeParams', '$http',
+	  function($scope, $routeParams, $http) {
+			//console.log("hello");
+			var settings = JSON.parse(localStorage.getItem("settings"));
+			//console.log(settings);
+			if (settings) {
+				console.log("settings are set");
+				$scope.login = settings.login;
+				$scope.password = settings.password;
+				$scope.server = settings.server;
+			} else {
+				console.log("set settings");
+				$scope.login = "<enter login>"
+			}
+		}
+	]
+);
