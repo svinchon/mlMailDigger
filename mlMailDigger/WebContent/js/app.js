@@ -18,9 +18,13 @@ var mlMailDiggerApp = angular.module('mlMailDiggerApp', [
 mlMailDiggerApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/test', {
-        templateUrl: 'partials/check-local-storage.html',
-        controller: 'CheckLocalStorageController'
+      when('/login', {
+        templateUrl: 'partials/login.html',
+        controller: 'LoginController'
+      }).
+      when('/loginResult', {
+          templateUrl: 'partials/login-result.html',
+          controller: 'LoginResultController'
       }).
       when('/mails', {
         templateUrl: 'partials/mails-list.html',

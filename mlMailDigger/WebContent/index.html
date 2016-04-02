@@ -15,14 +15,14 @@
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="js/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="mlMailDigger.css" rel="stylesheet">
+    <link href="css/mlMailDigger.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="ie-emulation-modes-warning.js"></script>
+    <script src="js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -34,11 +34,13 @@
 <body ng-app="mlMailDiggerApp" ng-controller="MailsListController">
 
     <!-- div-sidemenu -->
-	<div id="divSideMenu" class="div-sidemenu">
+	<div id="divSideMenu" class="div-sidemenu" ng-controller="ToolbarsController">
 	    <ul class="ul-sidebar">
 	    	<li class="li-sidebar">Home</li>
 	    	<li class="li-sidebar">Advanced Search</li>
 	    	<li class="li-sidebar">About</li>
+	    	<li class="li-sidebar" ng-click="connect()">Connect</li>	    	
+	    	<li class="li-sidebar" ng-click="disconnect()">Disconnect</li>	    	
 	    </ul>
 	</div><!-- /div-sidemenu -->
 
@@ -83,7 +85,7 @@
 		            <li class="active"><a href="./">Static top <span class="sr-only">(current)</span></a></li>
 		            <li></li>
 		            -->
-		            <li><a href="../navbar-fixed-top/">Advanced Search</a></li>
+		            <li><a href="#/login" data-toggle="collapse" data-target=".navbar-collapse">Login</a></li>
 		         </ul>
 		         <!--
 		         <div class="col-sm-3 col-md-3 pull-right">
@@ -109,7 +111,7 @@
     </div> <!-- /container -->
 
 	<!-- fixed footer -->
-	<footer class="footer" class="navbar-form">
+	<footer class="footer class="navbar-form">
 		<div class="container footer-container" >
 			<form class="form-inline" action="">
 				<div class="input-group">
@@ -119,10 +121,10 @@
 						<i class="glyphicon glyphicon-send"></i>
 					</span>
 					<input type="text" class="form-control" placeholder="from" ng-model="search.from" value="">
-					<span class="input-group-addon">
+					<span class="input-group-addon hidden-xs">
 						<i class="glyphicon glyphicon-tag"></i>
 					</span>
-					<input type="text" class="form-control" placeholder="tags" ng-model="search.tags" value="">
+					<input type="text" class="form-control hidden-xs" placeholder="tags" ng-model="search.tags" value="">
 					<div class="input-group-btn">
 						<button ng-click="go(search)" class="btn btn-primary" type="submit" id="btnAdvancedSearch">
 							<i class="glyphicon glyphicon-search"></i>
@@ -153,7 +155,7 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!---->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="ie10-viewport-bug-workaround.js"></script>
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
 	<!-- angular javascript -->
 	<script src="bower_components/angular/angular.js"></script>
 	<script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -172,13 +174,17 @@
 	<script>
     $("#btnShowMenu").click(function(e) {
         e.preventDefault();
-        $("#divSideMenu").toggle()
+        $("#divSideMenu").toggle();
     });
     $("#btnAdvancedSearch").click(function(e) {
         e.preventDefault();
         //$("#divSideMenu").toggle()
     });
+    $("#btnLogin").click(function(e) {
+        e.preventDefault();
+        $("#divSideMenu").toggle()
+        window.location.href = "#/login";
+    });
     </script>
-
   </body>
 </html>

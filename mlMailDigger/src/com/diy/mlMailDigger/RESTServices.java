@@ -29,73 +29,6 @@ public class RESTServices {
 	@Context ServletContext context;
 
 	@GET
-	@Path("/getMail.json")
-	@Consumes(MediaType.APPLICATION_XML)
-	@Produces("application/json;charset=utf-8")//MediaType.APPLICATION_JSON)
-	public Response getMail(
-			@QueryParam("id") String id
-	) {
-		byte[] output = null;
-		int code = 200;
-		try {
-			MarkLogicRESTServiceUtility mlUtil = new MarkLogicRESTServiceUtility();
-			Utils.log("getMail", this);
-			//output = mlrsu.getAllMails().getBytes();
-			output = mlUtil.callService(
-					/* url 			*/	"http://localhost:8000/LATEST/documents?uri=/mlMailDigger/"+id,
-					/* method		*/	"get",
-					/* body			*/	"",
-					/* user			*/	"svinchon",
-					/* password		*/	"Pa55word",
-					/* contentType	*/	"application/xml",
-					/* accept		*/	"application/json; charset=utf-8"
-			).getBytes("utf-8");
-			Utils.log("response:" + new String(output), this);
-		} catch (Exception e) {
-			e.printStackTrace();
-			String str = "{ error: true }";
-			output = str.getBytes();
-			code = 400;
-		}
-		return Response
-				.status(code)
-				.entity(output)
-				.header("Access-Control-Allow-Origin", "http://localhost:8000")
-				.build();
-	}
-
-	@GET
-	@Path("/getAllMails.json")
-	@Consumes(MediaType.APPLICATION_XML)
-	@Produces(MediaType.APPLICATION_JSON)
-	// @QueryParam("Scenario") String scenario
-	public Response getAllMails() {
-		byte[] output = null;
-		int code = 200;
-		try {
-			MarkLogicRESTServiceUtility mlUtil = new MarkLogicRESTServiceUtility();
-			Utils.log("getAllMails", this);
-			//output = mlrsu.getAllMails().getBytes();
-			output = mlUtil.callService(
-					/* url 			*/	"http://localhost:8000/LATEST/search",
-					/* method		*/	"get",
-					/* body			*/	"",
-					/* user			*/	"svinchon",
-					/* password		*/	"Pa55word",
-					/* contentType	*/	"application/xml",
-					/* accept		*/	"application/json"
-			).getBytes();
-			Utils.log("response:" + new String(output), this);
-		} catch (Exception e) {
-			e.printStackTrace();
-			String str = "{ error: true }";
-			output = str.getBytes();
-			code = 400;
-		}
-		return Response.status(code).entity(output).build();
-	}
-	
-	@GET
 	@Path("/getMostRecentMails.json")
 	//@Consumes(MediaType.APPLICATION_XML)
 	@Produces("application/json;charset=utf-8")//MediaType.APPLICATION_JSON)
@@ -136,10 +69,48 @@ public class RESTServices {
 		return Response
 				.status(code)
 				.entity(output)
+				//.header("Access-Control-Allow-Origin", "http://localhost:18080")
 				.header("Access-Control-Allow-Origin", "http://localhost:8000")
 				.build();
 	}
 	
+	@GET
+	@Path("/getMail.json")
+	@Consumes(MediaType.APPLICATION_XML)
+	@Produces("application/json;charset=utf-8")//MediaType.APPLICATION_JSON)
+	public Response getMail(
+			@QueryParam("id") String id
+	) {
+		byte[] output = null;
+		int code = 200;
+		try {
+			MarkLogicRESTServiceUtility mlUtil = new MarkLogicRESTServiceUtility();
+			Utils.log("getMail", this);
+			//output = mlrsu.getAllMails().getBytes();
+			output = mlUtil.callService(
+					/* url 			*/	"http://localhost:8000/LATEST/documents?uri=/mlMailDigger/"+id,
+					/* method		*/	"get",
+					/* body			*/	"",
+					/* user			*/	"svinchon",
+					/* password		*/	"Pa55word",
+					/* contentType	*/	"application/xml",
+					/* accept		*/	"application/json; charset=utf-8"
+			).getBytes("utf-8");
+			Utils.log("response:" + new String(output), this);
+		} catch (Exception e) {
+			e.printStackTrace();
+			String str = "{ error: true }";
+			output = str.getBytes();
+			code = 400;
+		}
+		return Response
+				.status(code)
+				.entity(output)
+				.header("Access-Control-Allow-Origin", "http://localhost:8000")
+				//.header("Access-Control-Allow-Origin", "http://localhost:18080")
+				.build();
+	}
+
 	@GET
 	@Path("/getMailsSearchResults.json")
 	@Produces("application/json;charset=utf-8")//MediaType.APPLICATION_JSON)
@@ -188,8 +159,42 @@ public class RESTServices {
 		return Response
 				.status(code)
 				.entity(output)
+				//.header("Access-Control-Allow-Origin", "http://localhost:18080")
 				.header("Access-Control-Allow-Origin", "http://localhost:8000")
 				.build();
 	}
+	
+	/*
+	@GET
+	@Path("/getAllMails.json")
+	@Consumes(MediaType.APPLICATION_XML)
+	@Produces(MediaType.APPLICATION_JSON)
+	// @QueryParam("Scenario") String scenario
+	public Response getAllMails() {
+		byte[] output = null;
+		int code = 200;
+		try {
+			MarkLogicRESTServiceUtility mlUtil = new MarkLogicRESTServiceUtility();
+			Utils.log("getAllMails", this);
+			//output = mlrsu.getAllMails().getBytes();
+			output = mlUtil.callService(
+					/* url 			*	"http://localhost:8000/LATEST/search",
+					/* method		*	"get",
+					/* body			*	"",
+					/* user			*	"svinchon",
+					/* password		*	"Pa55word",
+					/* contentType	*	"application/xml",
+					/* accept		*	"application/json"
+			).getBytes();
+			Utils.log("response:" + new String(output), this);
+		} catch (Exception e) {
+			e.printStackTrace();
+			String str = "{ error: true }";
+			output = str.getBytes();
+			code = 400;
+		}
+		return Response.status(code).entity(output).build();
+	}
+	*/
 
 }

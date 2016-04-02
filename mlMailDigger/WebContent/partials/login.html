@@ -9,7 +9,7 @@
     <div class="panel-title text-center">Credentials</div>
   </div>
  	<div class="panel-body" >
-    	<form id="form-login" name="form-login" class="form-horizontal" action="">
+    	<form id="form-login" name="form-login" class="form-horizontal">
 			<div class="input-group">
             	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
             	<input
@@ -44,12 +44,16 @@
      	        	placeholder="Server"
      	        >
         	</div>
-     	   <div class="form-group last">
-  		      	<!-- Button -->
-    	 	   	<div class="col-sm-12 controls">
-      	     		<button type="submit" href="#" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-log-in"></i> Store</button>                          
+      	   	<div class="form-group last">
+      	 	   	<div class="col-sm-12 controls">
+      	     		<button
+      	     			id="btnTest"
+      	     			type="submit"
+      	     			class="btn btn-primary pull-right"
+      	     			ng-click='storeCredentials()'
+      	     		><i class="glyphicon glyphicon-log-in"></i> Login</button>                          
    		     	</div>
-     	   </div>
+   		    </div>
 		</form>
   	</div><!-- /panel-body -->
   	<!-- <div class="panel-footer"></div>-->

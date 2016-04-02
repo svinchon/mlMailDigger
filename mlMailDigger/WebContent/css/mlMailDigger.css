@@ -9,11 +9,11 @@ body {
 	//min-height: 			2000px;
 	//margin-bottom: 		20px;
 	//margin-top:			20px;
-	// background:			url('/assets/example/bg_suburb.jpg') no-repeat center center fixed; 
- 	//-webkit-background-size: cover;
- 	//-moz-background-size:	cover;
- 	//-o-background-size:	cover;
- 	//background-size:		cover;
+	background:				url('http://localhost:18080/mlMailDigger/images/DiggerSmallTransparent.jpg') no-repeat center center fixed; 
+ 	-webkit-background-size:cover;
+ 	-moz-background-size:	cover;
+ 	-o-background-size:		cover;
+ 	background-size:		cover;
 }
 
 .footer {
